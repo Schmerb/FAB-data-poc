@@ -4,5 +4,6 @@ node_modules
 out
 
 # Files
-#package-lock.json
-#yarn.lock
+next.config.js
+package-lock.json
+yarn.lock
