@@ -1,10 +1,5 @@
-// @ts-nocheck
-// @ts-ignore
-
-const withTypescript = require('@zeit/next-typescript');
-
-module.exports = withTypescript({
-  webpack: config => {
+module.exports = {
+  webpack: (config) => {
     config.resolve.modules.push('.'); // resolve root imports
 
     return config;
@@ -16,4 +11,4 @@ module.exports = withTypescript({
 
     return pathMap;
   },
-});
+};

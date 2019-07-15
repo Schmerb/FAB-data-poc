@@ -1,8 +1,8 @@
 import React from 'react';
-import App, { Container, NextAppContext } from 'next/app';
+import App, { Container } from 'next/app';
 
 class MyApp extends App {
-  public static async getInitialProps({ Component, ctx }: NextAppContext<any>) {
+  public static async getInitialProps({ Component, ctx }: any) {
     let pageProps = {};
 
     if (Component.getInitialProps) {

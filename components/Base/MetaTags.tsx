@@ -1,25 +1,23 @@
 import React from 'react';
 
-import Page from 'utils/interfaces/Page';
+import PageMeta from 'utils/interfaces/PageMeta';
 
-const MetaTags = ({
-  page: { MetaTitle, MetaDescription, MetaKeywords, MetaImage },
-}: MetaTagsProps) => {
+const MetaTags = ({ metaTags: { title, description, keywords, image } }: MetaTagsProps) => {
   return (
     <>
-      <meta name="title" content={MetaTitle} />
-      <meta name="description" content={MetaDescription} />
-      {MetaKeywords && <meta name="keywords" content={MetaKeywords} />}
+      <meta name="title" content={title} />
+      <meta name="description" content={description} />
+      {keywords && <meta name="keywords" content={keywords} />}
 
-      <meta name="og:title" content={MetaTitle} />
-      <meta name="og:description" content={MetaDescription} />
-      <meta name="og:image" content={MetaImage && MetaImage.url} />
+      <meta name="og:title" content={title} />
+      <meta name="og:description" content={description} />
+      {image && <meta name="og:image" content={image.url} />}
     </>
   );
 };
 
 interface MetaTagsProps {
-  page: Page;
+  metaTags: PageMeta;
 }
 
 export default MetaTags;

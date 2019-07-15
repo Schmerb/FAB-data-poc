@@ -1,13 +1,16 @@
 const theme: Theme = {
   colors: {
     Primary: '',
+    PrimaryHover: '',
+
     Secondary: '',
+    SecondaryHover: '',
 
-    Light: '',
     LightText: '',
+    LightBackground: '',
 
-    Dark: '',
     DarkText: '',
+    DarkBackground: '',
   },
 };
 
