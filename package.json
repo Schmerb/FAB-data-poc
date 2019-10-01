@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "dev": "next ./src",
-    "build": "next ./src build",
-    "export": "npm run build && next  ./src export",
+    "build": "next build ./src",
+    "export": "npm run build && next export ./src",
     "lint": "eslint --ignore-path .eslintignore",
     "lint:staged": "lint-staged"
   },
