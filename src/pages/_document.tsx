@@ -5,9 +5,13 @@ import getConfig from 'next/config';
 
 import appConfig from 'utils/config';
 
-const {
-  publicRuntimeConfig: { NODE_ENV },
-} = getConfig();
+const config = getConfig();
+console.log({ config });
+
+const NODE_ENV =
+  (config.publicRuntimeConfig && config.publicRuntimeConfig.NODE_ENV) ||
+  'development';
+
 const isProduction = NODE_ENV === 'production';
 
 class MyDocument extends Document {
@@ -38,7 +42,9 @@ class MyDocument extends Document {
 
   public static getInitialProps({ renderPage }: any) {
     const sheet = new ServerStyleSheet();
-    const page = renderPage((App: any) => (props: any) => sheet.collectStyles(<App {...props} />));
+    const page = renderPage((App: any) => (props: any) =>
+      sheet.collectStyles(<App {...props} />),
+    );
 
     const styleTags = sheet.getStyleElement();
 
@@ -50,8 +56,14 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-          <meta httpEquiv="Content-Language" content={appConfig.Language.Code} />
-          <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+          <meta
+            httpEquiv="Content-Language"
+            content={appConfig.Language.Code}
+          />
+          <meta
+            httpEquiv="Cache-Control"
+            content="no-cache, no-store, must-revalidate"
+          />
           <meta httpEquiv="Pragma" content="no-cache" />
           <meta httpEquiv="Expires" content="0" />
 
@@ -60,7 +72,10 @@ class MyDocument extends Document {
             content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
           />
           <meta name="application-name" content={appConfig.AppName} />
-          <meta name="generator" content="The Virtual Forge (thevirtualforge.com)" />
+          <meta
+            name="generator"
+            content="The Virtual Forge (thevirtualforge.com)"
+          />
           <meta name="robots" content="index,follow" />
 
           <meta name="language" content={appConfig.Language.Code} />
@@ -81,13 +96,19 @@ class MyDocument extends Document {
           {isProduction && appConfig.GoogleAnalyticsTrackID && (
             <>
               {/* eslint-disable-next-line react/no-danger */}
-              <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+              <link
+                rel="dns-prefetch"
+                href="https://www.google-analytics.com"
+              />
               <script dangerouslySetInnerHTML={this.setGoogleAnalytics()} />
             </>
           )}
           {isProduction && appConfig.GoogleTagManagerTrackID && (
             <>
-              <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+              <link
+                rel="dns-prefetch"
+                href="https://www.googletagmanager.com"
+              />
               <script
                 async
                 src={`https://www.googletagmanager.com/gtag/js?id="${appConfig.GoogleTagManagerTrackID}"`}
