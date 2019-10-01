@@ -1,6 +1,7 @@
 import React from 'react';
 
 import PageLayout from 'components/PageLayout';
+import Home from 'containers/Home';
 
 import PageMeta from 'utils/interfaces/PageMeta';
 
@@ -9,6 +10,7 @@ const Homepage = ({ metaTags }: HomepageProps) => {
     <PageLayout metaTags={metaTags}>
       <h1>Hello friend!</h1>
       <p>Good luck on this new project ;)</p>
+      <Home />
     </PageLayout>
   );
 };

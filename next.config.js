@@ -1,6 +1,6 @@
 module.exports = {
   webpack: (config) => {
-    config.resolve.modules.push('.'); // resolve root imports
+    config.resolve.modules.push('./src'); // resolve root imports
 
     return config;
   },

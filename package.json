@@ -4,9 +4,9 @@
   "description": "[Nextjs Boilerplate] Powered by <js-engineering-team>",
   "private": true,
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "export": "npm run build && next export",
+    "dev": "next ./src",
+    "build": "next ./src build",
+    "export": "npm run build && next  ./src export",
     "lint": "eslint --ignore-path .eslintignore",
     "lint:staged": "lint-staged"
   },
