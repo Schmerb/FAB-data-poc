@@ -21,10 +21,13 @@ const GlobalStyles = styled.div`
   h4,
   h5,
   h6 {
-    text-align: center;
+    /* text-align: center; */
+    font-family: 'Montserrat', sans-serif;
   }
 
-  p {
-    text-align: center;
+  p,
+  label {
+    /* text-align: center; */
+    font-family: 'Roboto', sans-serif;
   }
 `;

@@ -7,18 +7,24 @@ import Results from 'components/Results';
 
 import { searchTitle, searchEntityTitle } from './api';
 
-const SearchField = ({ title, value, setValue, onSearch }: any) => (
+const SearchField = ({
+  title,
+  placeholder,
+  value,
+  setValue,
+  onSearch,
+}: any) => (
   <InputWrapper>
     <Label>{title}</Label>
     <Input
       value={value}
-      placeholder="Search"
+      placeholder={placeholder}
       onChange={(evt: any) => setValue(evt.target.value)}
       onDeleteClick={() => setValue('')}
     />
-    <Button type="button" onClick={onSearch}>
+    <StyledButton type="button" onClick={onSearch}>
       Search
-    </Button>
+    </StyledButton>
   </InputWrapper>
 );
 
@@ -66,6 +72,8 @@ const Home = ({  }: IHomeProps) => {
       <div>
         <p>Hyundai Engineering & Construction</p>
         <p>Hyundai E&C</p>
+        <p>BME:TRE </p>
+
         <p>Tecnicas Reunidas</p>
         <p>Tecnicas Reunidas S.A.</p>
       </div>
@@ -73,12 +81,14 @@ const Home = ({  }: IHomeProps) => {
       <Form onSubmit={(evt: any) => evt.preventDefault()}>
         <SearchField
           title="Search Title"
+          placeholder="Search Title e.g. BME:TRE"
           value={search}
           setValue={setSearch}
           onSearch={handleTitleSubmit}
         />
         <SearchField
           title="Search EntityTitle"
+          placeholder="Search EntityTitle e.g. Hyundai Engineering"
           value={searchEntity}
           setValue={setSearchEntity}
           onSearch={handleEntityTitleSubmit}
@@ -87,11 +97,13 @@ const Home = ({  }: IHomeProps) => {
 
       {isLoading && <h2>Searching News Stories...</h2>}
       {results && results.length > 0 && (
-        <Results
-          currentSearch={currentSearch}
-          results={results}
-          setResults={setResults}
-        />
+        <ResultsWrapper style={{ opacity: isLoading ? 0.33 : 1 }}>
+          <Results
+            currentSearch={currentSearch}
+            results={results}
+            setResults={setResults}
+          />
+        </ResultsWrapper>
       )}
     </Container>
   );
@@ -111,8 +123,9 @@ const Container = styled.div`
 const InputWrapper = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 25px;
   input {
-    width: 200px;
+    width: 300px;
   }
 `;
 
@@ -122,4 +135,14 @@ const Label = styled.label`
 
 const Form = styled.form`
   padding: 15px;
+`;
+
+const StyledButton = styled(Button)`
+  height: 40px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+`;
+
+const ResultsWrapper = styled.div`
+  transition: opacity 0.3s;
 `;

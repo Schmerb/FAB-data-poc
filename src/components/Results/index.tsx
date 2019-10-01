@@ -8,8 +8,14 @@ import Result from './Result';
 const Results = ({ results, setResults, currentSearch }: IResultsProps) => {
   return (
     <div>
-      <Button onClick={() => setResults([])}>Clear Results</Button>
-      <h2>Results for &quot;{currentSearch}&quot;:</h2>
+      <Button
+        style={{ backgroundColor: '#ed7165' }}
+        onClick={() => setResults([])}>
+        Clear Results
+      </Button>
+      <h2>
+        Results for &quot;{currentSearch}&quot;: ({results.length})
+      </h2>
       <ul>
         {results &&
           results.length > 0 &&

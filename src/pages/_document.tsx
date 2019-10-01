@@ -66,7 +66,6 @@ class MyDocument extends Document {
           />
           <meta httpEquiv="Pragma" content="no-cache" />
           <meta httpEquiv="Expires" content="0" />
-
           <meta
             name="viewport"
             content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
@@ -77,21 +76,22 @@ class MyDocument extends Document {
             content="The Virtual Forge (thevirtualforge.com)"
           />
           <meta name="robots" content="index,follow" />
-
           <meta name="language" content={appConfig.Language.Code} />
           <meta name="reference" content={appConfig.AppName} />
           <meta name="theme-color" content={appConfig.AppThemeColor} />
-
           <meta property="og:site_name" content={appConfig.AppName} />
           <meta property="og:type" content="website" />
           <meta property="og:locale" content={appConfig.Language.CodeRegion} />
-
           <script
             src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.4.0/polyfill.min.js"
             integrity="sha256-kfyezB/18U0JNw/E1sMpYty+9Z/umuPExduFzWp/tY8="
             crossOrigin="anonymous"
           />
           <script defer src="https://unpkg.com/unfetch/polyfill" />
+          <link
+            href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap"
+            rel="stylesheet"
+          />
 
           {isProduction && appConfig.GoogleAnalyticsTrackID && (
             <>
