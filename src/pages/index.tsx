@@ -5,15 +5,11 @@ import Home from 'containers/Home';
 
 import PageMeta from 'utils/interfaces/PageMeta';
 
-const Homepage = ({ metaTags }: HomepageProps) => {
-  return (
-    <PageLayout metaTags={metaTags}>
-      <h1>Hello friend!</h1>
-      <p>Good luck on this new project ;)</p>
-      <Home />
-    </PageLayout>
-  );
-};
+const Homepage = ({ metaTags }: HomepageProps) => (
+  <PageLayout metaTags={metaTags}>
+    <Home />
+  </PageLayout>
+);
 
 export default Homepage;
 
