@@ -27,6 +27,8 @@ module.exports = withImages(
           'react-spring/renderprops$': 'react-spring/renderprops.cjs',
         },
       };
+
+      config.resolve.modules.push('./src'); // resolve root imports
       return config;
     },
   }),
